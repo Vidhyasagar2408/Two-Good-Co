@@ -1,6 +1,6 @@
-// Initialize Lenis
-const lenis = new Lenis({
-  autoRaf: true,
+let scroll = new LocomotiveScroll({
+  el: document.querySelector("main"),
+  smooth: true,
 });
 
 function imageAnimate() {
@@ -59,6 +59,3 @@ function loadingAnimation() {
 }
 
 loadingAnimation();
-
-gsap.registerPlugin(ScrollTrigger);
-
