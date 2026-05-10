@@ -1,40 +1,77 @@
-let scroll = new LocomotiveScroll({
+gsap.registerPlugin(ScrollTrigger);
+
+const locoScroll = new LocomotiveScroll({
   el: document.querySelector("main"),
   smooth: true,
+});
+
+locoScroll.on("scroll", ScrollTrigger.update);
+
+ScrollTrigger.scrollerProxy("main", {
+  scrollTop(value) {
+    return arguments.length
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y;
+  },
+
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+
+  pinType: document.querySelector("main").style.transform
+    ? "transform"
+    : "fixed",
+});
+
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+
+let mouseX = 0;
+let mouseY = 0;
+
+window.addEventListener("mousemove", function (dets) {
+  mouseX = dets.clientX;
+  mouseY = dets.clientY;
 });
 
 function imageAnimate() {
   let image = document.querySelector(".image");
   let play = document.querySelector(".play");
-
+  
   gsap.set(play, {
     opacity: 0,
     scale: 0,
   });
-
+  
   image.addEventListener("mouseenter", function () {
     gsap.to(play, {
       opacity: 1,
       scale: 1,
     });
   });
-
+  
   image.addEventListener("mouseleave", function () {
     gsap.to(play, {
       opacity: 0,
       scale: 0,
     });
   });
-
+  
   image.addEventListener("mousemove", function (dets) {
+    let rect = image.getBoundingClientRect();
     gsap.to(play, {
       opacity: 1,
       scale: 1,
-      left: dets.clientX,
-      top: dets.clientY,
+      x: dets.clientX - rect.left - play.offsetWidth / 2,
+      y: dets.clientY - rect.top - play.offsetHeight / 2,
       duration: 0.5,
       ease: "power3.out",
-      overwrite: "auto",
+      overwrite: true,
     });
   });
 }
@@ -50,7 +87,7 @@ function loadingAnimation() {
     ease: "back.in",
     stagger: 0.2,
   });
-
+  
   tl.from(".page1 .image", {
     duration: 0.5,
     opacity: 0,
@@ -59,3 +96,17 @@ function loadingAnimation() {
 }
 
 loadingAnimation();
+
+gsap.to(".image img", {
+  y: 200,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".image",
+    scroller: "main",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 2,
+  },
+});
+
+ScrollTrigger.refresh();

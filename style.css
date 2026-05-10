@@ -10,8 +10,8 @@
 }
 
 *::selection {
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 
 html,
@@ -33,7 +33,7 @@ body {
 }
 
 .page1 h1 {
-  font-size: 15.3vw;
+  font-size: 14vw;
   font-weight: 700;
   font-family: F;
   line-height: 13vw;
@@ -49,9 +49,12 @@ body {
 }
 
 .image img {
-  height: 100%;
-  width: 120%;
+  height: 140%;
+  width: 100%;
   object-fit: cover;
+  position: absolute;
+  top: -20%;
+  left: 0;
 }
 
 .image .play {
@@ -59,7 +62,7 @@ body {
   width: 30px;
   padding: 3vw;
   font-family: F;
-  position: fixed;
+  position: absolute;
   opacity: 0;
   scale: 0;
   background-color: black;
@@ -69,8 +72,86 @@ body {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  left: 0;
+  top: 0;
+  z-index: 2;
 }
 
-.page2{
+.page2 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 3vw 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
+.page2 .elem {
+  height: 100%;
+  width: 31%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page2 .elem img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  scale: 1.1;
+}
+
+.elem .dets{
+  height: 60px;
+  width: 70%;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 9;
+  background-color: burlywood;
+}
+
+.page3{
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+@media (max-width: 600px) {
+  .page1 {
+    min-height: 100vh;
+    padding: 0 4vw;
+    padding-top: 34vh;
+  }
+
+  .page1 h1 {
+    font-size: 15.3vw;
+  }
+
+  .image {
+    height: 35vh;
+    margin-top: 2vh;
+  }
+
+  .image img{
+    height: 30vh;
+  }
+
+  .image .play {
+    font-size: 8px;
+  }
+
+  .page2 {
+  min-height: 300vh;
+  padding: 3vw 4vw;
+  gap: 2vw;
+  flex-direction: column;
+}
+
+.page2 .elem {
+  width: 100%;
+}
 }
