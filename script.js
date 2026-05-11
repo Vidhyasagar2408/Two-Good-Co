@@ -161,3 +161,21 @@ function cursorAnimation() {
 }
 
 cursorAnimation();
+
+document.querySelectorAll(".page2 .elem .dets").forEach(function (elem) {
+  elem.addEventListener("mouseenter", function () {
+    gsap.to(elem, {
+      height: 'auto',
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+
+  elem.addEventListener("mouseleave", function () {
+    gsap.to(elem, {
+      height: 60,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});

@@ -25,10 +25,12 @@ body {
 }
 
 nav {
+  background-color: rgba(255, 255, 255, 0.404);
+  height: auto;
   width: 100%;
   position: fixed;
   z-index: 999;
-  padding: 2vw;
+  padding: 1vw;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -55,7 +57,7 @@ nav .nav-part2 {
 }
 
 .nav-part2 .link {
-  padding: 2vw;
+  padding: 1vw;
   display: flex;
   gap: 1.5vw;
 }
@@ -210,8 +212,51 @@ nav .nav-part2 {
   width: 70%;
   border-radius: 20px;
   position: absolute;
-  z-index: 9;
-  background-color: burlywood;
+  background-color: #f7f7f7;
+  z-index: 99;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.elem .dets h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: F;
+  color: black;
+}
+
+.elem .dets p {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: F;
+  color: black;
+}
+
+.elem .dets i {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: F;
+  color: black;
+}
+
+.dets .visible {
+  background-color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.dets .hidden {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dets .hidden h5 {
+  color: black;
+  font-family: F;
+  font-size: 20px;
+  text-align: center;
 }
 
 .page3 {
