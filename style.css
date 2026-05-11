@@ -317,7 +317,7 @@ nav .nav-part2 {
     display: none;
   }
 
-  .nav-part2 .icon {
-    font-size: clamp(20px, 14px, 40px);
+  .nav-part2 .icon i {
+    font-size: 30px;
   }
 }
