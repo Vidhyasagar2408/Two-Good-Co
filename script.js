@@ -40,27 +40,36 @@ function locomotiveAnimation() {
 locomotiveAnimation();
 
 function navbarAnimation() {
-  gsap.to("nav .nav-part1 svg", {
-    transform: "translate(0% , -100%)",
-    duration: 0.1,
-    scrollTrigger: {
-      scroller: "main",
-      trigger: "page1",
-      start: "top 0",
-      end: "bottom -5%",
-      scrub: true,
-    },
-  });
+  ScrollTrigger.create({
+    trigger: ".page1",
+    scroller: "main",
+    start: "top top",
+    end: "bottom top",
 
-  gsap.to("nav .nav-part2 .link", {
-    transform: "translate( 0% ,-100%)",
-    opacity: 0,
-    scrollTrigger: {
-      scroller: "main",
-      trigger: "page1",
-      start: "top 0",
-      end: "bottom -5%",
-      scrub: true,
+    onUpdate: (self) => {
+      if (self.scroll() > 50) {
+        gsap.to("nav .nav-part1 svg", {
+          y: "-100%",
+          duration: 0.5,
+        });
+
+        gsap.to("nav .nav-part2 .link", {
+          y: "-100%",
+          opacity: 0,
+          duration: 0.3,
+        });
+      } else {
+        gsap.to("nav .nav-part1 svg", {
+          y: "0%",
+          duration: 0.5,
+        });
+
+        gsap.to("nav .nav-part2 .link", {
+          y: "0%",
+          opacity: 1,
+          duration: 0.3,
+        });
+      }
     },
   });
 }
@@ -124,22 +133,6 @@ function loadingAnimation() {
 }
 
 loadingAnimation();
-
-function imageAnimation() {
-  gsap.to(".image img", {
-    y: 200,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".image",
-      scroller: "main",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 2,
-    },
-  });
-}
-
-imageAnimation();
 
 function cursorAnimation() {
   document.addEventListener("mousemove", function (dets) {
