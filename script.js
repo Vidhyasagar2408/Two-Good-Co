@@ -30,38 +30,32 @@ ScrollTrigger.scrollerProxy("main", {
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-
 let mouseX = 0;
 let mouseY = 0;
-
-window.addEventListener("mousemove", function (dets) {
-  mouseX = dets.clientX;
-  mouseY = dets.clientY;
-});
 
 function imageAnimate() {
   let image = document.querySelector(".image");
   let play = document.querySelector(".play");
-  
+
   gsap.set(play, {
     opacity: 0,
     scale: 0,
   });
-  
+
   image.addEventListener("mouseenter", function () {
     gsap.to(play, {
       opacity: 1,
       scale: 1,
     });
   });
-  
+
   image.addEventListener("mouseleave", function () {
     gsap.to(play, {
       opacity: 0,
       scale: 0,
     });
   });
-  
+
   image.addEventListener("mousemove", function (dets) {
     let rect = image.getBoundingClientRect();
     gsap.to(play, {
@@ -87,7 +81,7 @@ function loadingAnimation() {
     ease: "back.in",
     stagger: 0.2,
   });
-  
+
   tl.from(".page1 .image", {
     duration: 0.5,
     opacity: 0,
@@ -110,3 +104,27 @@ gsap.to(".image img", {
 });
 
 ScrollTrigger.refresh();
+
+document.addEventListener("mousemove", function (dets) {
+  gsap.to(".cursor", {
+    left: dets.x,
+    top: dets.y,
+  });
+});
+
+document.querySelectorAll(".child").forEach(function (elem) {
+  elem.addEventListener("mouseenter", function () {
+    gsap.to(".cursor", {
+      transform: "translate(-50%,-50%)",
+      scale: 1,
+    });
+  });
+
+  elem.addEventListener("mouseleave", function () {
+    gsap.to(".cursor", {
+      duration: 0.3,
+      transform: "translate(-50%,-50%)",
+      scale: 0,
+    });
+  });
+});

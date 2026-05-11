@@ -21,7 +21,18 @@ body {
 }
 
 body {
+  background-color: #f7f7f7;
+}
+
+.cursor {
+  height: 400px;
+  width: 400px;
   background-color: white;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  scale: 0;
+  pointer-events: none;
 }
 
 .page1 {
@@ -71,7 +82,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  pointer-events: auto;
   left: 0;
   top: 0;
   z-index: 2;
@@ -105,7 +116,7 @@ body {
   scale: 1.1;
 }
 
-.elem .dets{
+.elem .dets {
   height: 60px;
   width: 70%;
   border-radius: 20px;
@@ -114,10 +125,29 @@ body {
   background-color: burlywood;
 }
 
-.page3{
-  height: 100vh;
+.page3 {
+  min-height: 120vh;
   width: 100%;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.child {
+  height: 100vh;
+  width: 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {
@@ -136,7 +166,7 @@ body {
     margin-top: 2vh;
   }
 
-  .image img{
+  .image img {
     height: 30vh;
   }
 
@@ -145,13 +175,13 @@ body {
   }
 
   .page2 {
-  min-height: 300vh;
-  padding: 3vw 4vw;
-  gap: 2vw;
-  flex-direction: column;
-}
+    min-height: 300vh;
+    padding: 3vw 4vw;
+    gap: 2vw;
+    flex-direction: column;
+  }
 
-.page2 .elem {
-  width: 100%;
-}
+  .page2 .elem {
+    width: 100%;
+  }
 }
