@@ -372,45 +372,15 @@ nav .nav-part2 {
     height: 40px;
   }
 
-  .dets .visible {
-    background-color: white;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
   .elem .dets h4 {
     font-size: 12px;
-    text-transform: uppercase;
-    font-family: F;
-    color: black;
-    white-space: nowrap;
   }
 
   .elem .dets p {
     font-size: 12px;
-    text-transform: uppercase;
-    font-family: F;
-    color: black;
   }
 
   .elem .dets i {
     font-size: 12px;
-    text-transform: uppercase;
-    font-family: F;
-    color: black;
-  }
-
-  .dets .hidden {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .dets .hidden h5 {
-    color: black;
-    font-family: F;
-    font-size: 12px;
-    text-align: center;
   }
 }
