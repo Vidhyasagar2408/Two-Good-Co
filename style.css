@@ -25,44 +25,48 @@ body {
 }
 
 nav {
-  min-height: 100px;
   width: 100%;
   position: fixed;
   z-index: 999;
   padding: 2vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 6vw;
 }
 
-.nav-part1{
+.nav-part1 {
   height: 82px;
   overflow: hidden;
 }
 
 .nav-part1 svg {
-  
+  display: block;
 }
 
-.nav-part2 {
+.nav-part1 svg .svg1{
+  margin-bottom: 8px;
+}
+
+nav .nav-part2 {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 6vw;
 }
 
 .nav-part2 .link {
+  padding: 2vw;
   display: flex;
   gap: 4vw;
 }
 
-.nav-part2 a {
+.nav-part2 .link a {
   font-size: 20px;
   text-transform: uppercase;
   text-decoration: none;
   color: black;
   font-weight: 500;
+  margin: 0 20px;
   font-family:
     system-ui,
     -apple-system,
@@ -75,16 +79,15 @@ nav {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-
 }
 
 .nav-part2 .icons {
-  display: flex;
-  gap: 3vw;
   font-size: 20px;
   background-color: white;
   border-radius: 20px;
   padding: 0.5vw 1.5vw;
+  gap: 30px;
+  display: flex;
 }
 
 .cursor {

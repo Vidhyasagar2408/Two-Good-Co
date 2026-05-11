@@ -39,17 +39,33 @@ function locomotiveAnimation() {
 }
 locomotiveAnimation();
 
-gsap.to("nav .nav-part1 svg", {
-  transform: "translate(-100%)",
-  scrollTrigger: {
-    scroller: "main",
-    trigger: "page1",
-    markers: true,
-    start: "top 0",
-    end: "bottom -5%",
-    scrub: true,
-  },
-});
+function navbarAnimation() {
+  gsap.to("nav .nav-part1 svg", {
+    transform: "translate(0% , -100%)",
+    duration: 0.1,
+    scrollTrigger: {
+      scroller: "main",
+      trigger: "page1",
+      start: "top 0",
+      end: "bottom -5%",
+      scrub: true,
+    },
+  });
+
+  gsap.to("nav .nav-part2 .link", {
+    transform: "translate( 0% ,-100%)",
+    opacity: 0,
+    scrollTrigger: {
+      scroller: "main",
+      trigger: "page1",
+      start: "top 0",
+      end: "bottom -5%",
+      scrub: true,
+    },
+  });
+}
+
+navbarAnimation();
 
 function imageAnimate() {
   let image = document.querySelector(".image");
